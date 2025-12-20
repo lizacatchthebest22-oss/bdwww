@@ -1,0 +1,9 @@
+CREATE OR REPLACE PROCEDURE add_new_category(new_category_name VARCHAR)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+  IF NOT EXISTS (SELECT 1 FROM category WHERE name = new_category_name) THEN
+    INSERT INTO category (name) VALUES (new_category_name);
+  END IF;
+END;
+$$;
