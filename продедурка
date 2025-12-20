@@ -7,3 +7,6 @@ BEGIN
   END IF;
 END;
 $$;
+
+CALL add_new_category('Новая категория');
+SELECT COUNT(*) FROM category WHERE name = 'Новая категория';
